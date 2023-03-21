@@ -32,6 +32,15 @@ class ConcreteDecoratorA(Decorator):
     def doSomething(self) -> str:
         return f"Decorated A = {super().doSomething()} XD !!!"
 
+class ConcreteDecoratorB(Decorator):
+    def __init__(self, component: Component) -> None:
+        super().__init__(component)
+
+    def doSomething(self) -> str:
+
+        return f"Decorated B = {super().doSomething()} :D <<<<"
+        return super().doSomething()
+
     
 
 def excuteSomething( component : Component ) -> str :
@@ -40,9 +49,13 @@ def excuteSomething( component : Component ) -> str :
 
 myComponent : Component = ConcreteComponent()
 
-decorated   : Component = Decorator(myComponent)
-decoraredA  : Component = ConcreteDecoratorA(myComponent)
+decorated  : Component = Decorator(myComponent)
+decoratedA : Component = ConcreteDecoratorA(myComponent)
+decoratedB : Component = ConcreteDecoratorB(myComponent)
+maxDecorated : Component = ConcreteDecoratorB(decoratedA) 
 
 print(excuteSomething(myComponent))
 print(excuteSomething(decorated))
-print(excuteSomething(decoraredA))
+print(excuteSomething(decoratedA))
+print(excuteSomething(decoratedB))
+print(excuteSomething(maxDecorated))
