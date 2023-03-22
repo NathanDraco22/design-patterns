@@ -1,6 +1,4 @@
-
 import copy
-
 
 class Bacter:
     name : str
@@ -22,7 +20,7 @@ class Cell:
         self.size = size
         self.gen = gen
 
-    def copyWith(self,name:str|None = None , size:float|None = None, gen: str|None = None):
+    def copy_with(self,name:str|None = None , size:float|None = None, gen: str|None = None):
         new = self.__class__(
             name = name if name else self.name,
             size = size if size else self.size,
@@ -33,12 +31,13 @@ class Cell:
     def __str__(self) -> str:
         return f"name: {self.name}, size: {self.size}, gen: {self.gen}"
 
-
+# using copy
 bacter_1: Bacter = Bacter("Cocus", 12.5, 1)
-bacter_cloned = copy.copy(bacter_1)
+bacter_cloned = copy.copy(bacter_1) 
 
+# using copyWith style
 cell_1 = Cell("Animal" , 400, 1)
-cell_cloned = cell_1.copyWith(
+cell_cloned = cell_1.copy_with(
     name= "SuperAnimal",
     gen=2
 )
