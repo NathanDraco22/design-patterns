@@ -2,7 +2,7 @@ import abc
 class Component(abc.ABC):
     @abc.abstractmethod
     def doSomething(self) -> str:
-        ...
+        pass
 
 class ConcreteComponent(Component):
     def doSomething(self) -> str:
@@ -39,7 +39,6 @@ class ConcreteDecoratorB(Decorator):
     def doSomething(self) -> str:
 
         return f"Decorated B = {super().doSomething()} :D <<<<"
-        return super().doSomething()
 
     
 
