@@ -1,5 +1,3 @@
-
-
 class SubSystem:
 
     def operation_init():
